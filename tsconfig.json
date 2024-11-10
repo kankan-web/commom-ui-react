@@ -117,6 +117,13 @@
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   },
   "include": [
-    "src/**/*" //这将包括src目录下的所有文件
-  ]
+    "src/**/*", //这将包括src目录下的所有文件
+    "typings/**/*"
+  ],
+  "paths": {
+    // 路径映射，与 baseUrl 关联
+    "@src/*": ["src/*"],
+    "@components/*": ["src/components/*"],
+    "@utils/*": ["src/utils/*"]
+  }
 }

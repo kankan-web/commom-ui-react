@@ -7,7 +7,9 @@ const getCssLoaders = (importLoaders) => [
   {
     loader: "css-loader",
     options: {
-      modules: false,
+      modules: {
+        localIdentName: "[local]__[hash:base64:5]",
+      },
       sourceMap: isDev,
       importLoaders,
     },
@@ -43,7 +45,15 @@ const PLUGINS = [
 export default {
   mode: isDev ? "development" : "production",
   entry: {
-    app: resolve(PROJECT_PATH, "./src/app.js"),
+    app: resolve(PROJECT_PATH, "./src/index"),
+  },
+  resolve: {
+    extensions: [".tsx", ".ts", ".js", ".json"],
+    alias: {
+      "@src": resolve(PROJECT_PATH, "./src"),
+      "@components": resolve(PROJECT_PATH, "./src/components"),
+      "@utils": resolve(PROJECT_PATH, "./src/utils"),
+    },
   },
   output: {
     filename: `js/[name]${isDev ? "" : ".[hash:8]"}.js`,
@@ -103,6 +113,13 @@ export default {
             maxSize: 8 * 1024, // 8kb
           },
         },
+      },
+      //babel配置jsx
+      {
+        test: /\.(tsx?|js)$/,
+        loader: "babel-loader",
+        options: { cacheDirectory: true },
+        exclude: /node_modules/,
       },
     ],
   },
