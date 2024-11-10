@@ -1,5 +1,6 @@
 {
   "name": "common-ui-react",
+  "type": "module",
   "version": "1.0.0",
   "description": "组件库",
   "main": "dist/boundle.js",
@@ -9,7 +10,10 @@
     "lint-eslint": "eslint -c .eslintrc.js --ext .ts,.tsx,.js src",
     "lint-stylelint": "stylelint --config .stylelintrc.js src/**/*.{less,css,scss}",
     "prepare": "husky install",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "start": "cross-env NODE_ENV=development webpack-dev-server --config ./scripts/config/webpack.dev.js",
+    "build": "cross-env NODE_ENV=production webpack --config ./scripts/config/webpack.prod.js",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "keywords": [],
   "author": "kankan",
@@ -19,15 +23,31 @@
     "@commitlint/cli": "^19.5.0",
     "@commitlint/config-conventional": "^19.5.0",
     "@eslint/js": "^9.14.0",
+    "autoprefixer": "10.4.18",
+    "clean-webpack-plugin": "4.0.0",
     "commitizen": "^4.3.1",
+    "conventional-changelog-cli": "^5.0.0",
+    "cross-env": "7.0.3",
+    "css-loader": "6.10.0",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^9.14.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-vue": "^9.30.0",
     "globals": "^15.12.0",
+    "html-webpack-plugin": "5.6.0",
     "husky": "^9.1.6",
+    "less": "4.2.0",
+    "less-loader": "12.2.0",
     "lint-staged": "^15.2.10",
+    "postcss": "8.4.35",
+    "postcss-flexbugs-fixes": "5.0.2",
+    "postcss-loader": "8.1.1",
+    "postcss-normalize": "10.0.1",
+    "postcss-preset-env": "9.5.1",
     "prettier": "^3.3.3",
+    "sass": "^1.80.6",
+    "sass-loader": "^16.0.3",
+    "style-loader": "3.3.4",
     "stylelint": "^16.10.0",
     "stylelint-config-prettier": "^9.0.5",
     "stylelint-config-rational-order": "^0.1.2",
@@ -35,7 +55,15 @@
     "stylelint-declaration-block-no-ignored-properties": "^2.8.0",
     "stylelint-prettier": "^5.0.2",
     "typescript": "^5.6.3",
-    "typescript-eslint": "^8.13.0"
+    "typescript-eslint": "^8.13.0",
+    "webpack": "5.90.3",
+    "webpack-cli": "5.1.4",
+    "webpack-dev-server": "5.0.3",
+    "webpack-merge": "5.10.0"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "config": {
     "commitizen": {
@@ -58,5 +86,11 @@
     "*.{ts,tsx,js,json,html,yml,css,less,scss,md}": [
       "prettier --write"
     ]
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "ie >= 9",
+    "not op_mini all"
+  ]
 }
