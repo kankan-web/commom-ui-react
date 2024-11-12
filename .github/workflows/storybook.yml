@@ -39,4 +39,4 @@ jobs:
           jekyll: false
         env:
           # 设置GitHub Token
-          GITHUB_TOKEN: ${{ secrets.DELOY_STORYBOOK }}
+          GITHUB_TOKEN: ${{ secrets.COMMOM_UI_REACT }}

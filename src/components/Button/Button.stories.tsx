@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
 import { Button } from "./Button";
 
-export const meta = {
+const meta = {
   title: "通用/Button",
   component: Button,
   parameters: {
