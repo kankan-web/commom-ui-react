@@ -7,9 +7,12 @@ const getCssLoaders = (importLoaders) => [
   {
     loader: "css-loader",
     options: {
-      modules: {
-        localIdentName: "[local]__[hash:base64:5]",
-      },
+      //启用css module
+      //   modules: {
+      //     localIdentName: "[local]__[hash:base64:5]",
+      //   },
+      //不启用css module
+      modules: false,
       sourceMap: isDev,
       importLoaders,
     },
@@ -82,7 +85,7 @@ export default {
         use: [
           ...getCssLoaders(2),
           {
-            loader: "scss-loader",
+            loader: "sass-loader",
             options: {
               sourceMap: isDev,
             },

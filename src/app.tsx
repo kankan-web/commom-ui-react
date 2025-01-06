@@ -1,16 +1,15 @@
 import React from "react";
-import img from "../public/img.png";
-import { Header } from "@components/Header/index";
-import { Button } from "@components/Button/Button";
+// import img from "../public/img.png";
+// import { Header } from "@components/Header/index";
+// import { Button } from "@components/Button/Button";
+import Calendar from "@components/Calendar/index";
+import dayjs from "dayjs";
+
 function App() {
   return (
-    <>
-      <Header />
-      <Button label="Button" onClick={() => {}} primary />
-      <div className="App">React18 + Ts5 + webpack5 开发模板搭建</div>
-      <img src={img} alt="测试" />
-    </>
+    <div className="App">
+      <Calendar defaultValue={dayjs("2023-11-08")}></Calendar>
+    </div>
   );
 }
-
 export default App;

@@ -24,7 +24,7 @@ export default {
     // 禁用无效的双斜杠注释规则
     "no-invalid-double-slash-comments": null,
     // 指定规则前需要空行
-    "rule-empty-line-before": "always",
+    "rule-empty-line-before": "never",
     //stylelint-declaration-block-no-ignored-properties 用于提示我们写的矛盾样式
     "plugin/declaration-block-no-ignored-properties": true,
   },
